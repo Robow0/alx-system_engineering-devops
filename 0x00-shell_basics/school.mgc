@@ -1,2 +1,2 @@
 #!/bin/bash
-0 !:school  string SCHOOL 
+0 string SCHOOL !:school
