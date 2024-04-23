@@ -8,9 +8,12 @@
 #   ufw-before-forward
 #
 
+# The firewall redirects port 8080/TCP to port 80/TCP 
 *nat
 :PREROUTING ACCEPT [0:0]
 -A PREROUTING -p tcp --dport 8080 -j REDIRECT --to-port 80
+
+# don't delete the 'COMMIT' line or these rules won't be processed
 COMMIT
 
 # Don't delete these required lines, otherwise there will be errors
@@ -20,6 +23,7 @@ COMMIT
 :ufw-before-forward - [0:0]
 :ufw-not-local - [0:0]
 # End required lines
+
 
 # allow all on loopback
 -A ufw-before-input -i lo -j ACCEPT
